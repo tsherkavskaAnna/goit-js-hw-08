@@ -5,7 +5,7 @@ const refs = {
     email: document.querySelector(`input`),
     message: document.querySelector(`textarea`),
 };
-console.log(refs.message);
+console.log(refs);
 
 let formData = {};
 const LOCALSTORAGE_KEY = `feedback-form-state`;
