@@ -7,7 +7,10 @@ const refs = {
 };
 console.log(refs);
 
-let formData = {};
+let formData = {
+    email: "",
+    message: "",
+};
 const LOCALSTORAGE_KEY = `feedback-form-state`;
 
 refs.form.addEventListener(`input`, throttle(onFormImput, 500 ));
@@ -31,15 +34,14 @@ function onFormSubmit(event) {
 
 
 function populateTextArea() {
-    const savedMessage = localStorage.getItem(LOCALSTORAGE_KEY);
-    const parsed = JSON.parse(savedMessage);
+    let savedMessage = localStorage.getItem(LOCALSTORAGE_KEY);
+    
  if(savedMessage) {
-        const parsedSavedMes = JSON.parse(savedMessage);
-        let formData = {};
-        formData = parsedSavedMes;
-        refs.email.value = parsedSavedMes.email;
-        refs.message.value = parsedSavedMes.message;
-console.log(parsedSavedMes)
+    const parsedMessage = JSON.parse(savedMessage);
+   formData = parsedMessage;
+
+   refs.email.value = parsedMessage.email;
+   refs.message.value = parsedMessage.message;
     }
 }
 
