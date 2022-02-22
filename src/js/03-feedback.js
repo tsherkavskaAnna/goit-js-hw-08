@@ -28,6 +28,10 @@ function onFormImput(event) {
 function onFormSubmit(event) {
     event.preventDefault();
     console.log(formData);
+    formData = {
+        email: "",
+        message: "",
+    }
     event.currentTarget.reset();
     localStorage.removeItem(LOCALSTORAGE_KEY);
 }
